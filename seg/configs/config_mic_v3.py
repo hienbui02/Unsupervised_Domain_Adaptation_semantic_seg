@@ -4,13 +4,13 @@ log_config = dict(
     hooks=[dict(type='TextLoggerHook', by_epoch=False)])
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
-load_from = None
-resume_from = None
+load_from = '/kaggle/input/mic-10000-base/iter_10000.pth'
+resume_from = '/kaggle/input/mic-10000-base/iter_10000.pth'
+checkpoint = '/kaggle/input/mic-10000-base/iter_10000.pth'
 workflow = [('train', 1)]
 cudnn_benchmark = True
 norm_cfg = dict(type='BN', requires_grad=True)
 find_unused_parameters = True
-checkpoint = 'https://download.openmmlab.com/mmsegmentation/v0.5/pretrain/segformer/mit_b5_20220624-658746d9.pth'
 model = dict(
     type='EncoderDecoder',
     pretrained=checkpoint,
@@ -238,7 +238,7 @@ lr_config = dict(
 seed = 2
 n_gpus = 1
 gpu_model = 'NVIDIATITANRTX'
-runner = dict(type='IterBasedRunner', max_iters=10000)
+runner = dict(type='IterBasedRunner', max_iters=20000)
 checkpoint_config = dict(by_epoch=False, interval=10000, max_keep_ckpts=1)
 evaluation = dict(interval=500, metric='mIoU')
 name = '240925_1005_gta2cs_mic_daformer_bcb5a'
