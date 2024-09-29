@@ -4,9 +4,9 @@ log_config = dict(
     hooks=[dict(type='TextLoggerHook', by_epoch=False)])
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
-load_from = '/kaggle/input/mic-20000-base/iter_20000.pth'
-resume_from = '/kaggle/input/mic-20000-base/iter_20000.pth'
-checkpoint = '/kaggle/input/mic-20000-base/iter_20000.pth'
+load_from = '/kaggle/input/mic-25000-base/iter_25000.pth'
+resume_from = '/kaggle/input/mic-25000-base/iter_25000.pth'
+checkpoint = '/kaggle/input/mic-25000-base/iter_25000.pth'
 workflow = [('train', 1)]
 cudnn_benchmark = True
 norm_cfg = dict(type='BN', requires_grad=True)
@@ -238,8 +238,8 @@ lr_config = dict(
 seed = 2
 n_gpus = 1
 gpu_model = 'NVIDIATITANRTX'
-runner = dict(type='IterBasedRunner', max_iters=25000)
-checkpoint_config = dict(by_epoch=False, interval=5000, max_keep_ckpts=1)
+runner = dict(type='IterBasedRunner', max_iters=35000)
+checkpoint_config = dict(by_epoch=False, interval=10000, max_keep_ckpts=1)
 evaluation = dict(interval=1000, metric='mIoU')
 name = '240925_1005_gta2cs_mic_daformer_bcb5a'
 exp = 'basic'
